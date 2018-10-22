@@ -14,8 +14,8 @@ num_lines="$(wc $file_name | awk '{print $1;}')"
 num_lines_per_file=$(expr $num_lines / $num_processors)
 
 
-tail -n +2 $file_name | split -l $num_lines_per_file $file_name 311_split_ --additional-suffix='.csv'
-for file in 311_split_*
+tail -n +2 $file_name | split -l $num_lines_per_file $file_name 311_split/311_split_ --additional-suffix='.csv'
+for file in 311_split/311_split_*
 do
     head -n 1 $file_name > tmp_file
     cat $file >> tmp_file
